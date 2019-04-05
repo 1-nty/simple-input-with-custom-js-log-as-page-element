@@ -1,0 +1,20 @@
+function log() {
+  //objectName['propName']
+  //onclick collect inputs
+  var inputs, index;
+  inputs = document.getElementsByTagName('input');
+  //set returnObj
+  var returnObj = {}
+  for (index = 0; index < inputs.length; ++index) {
+    // deal with inputs[index] element.
+    returnObj[inputs[index].placeholder]=inputs[index].value
+  }
+  //write object
+  console.log(returnObj)
+  //clear
+  for (index = 0; index < inputs.length; ++index) {
+    // deal with inputs[index] element.
+    inputs[index].value=''
+  }
+  
+}
