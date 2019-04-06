@@ -1,0 +1,58 @@
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <head>
+    <style>
+    input {
+      text-align: 'right';
+      width: 100%;
+    }
+    div {
+      display: block;
+    }
+    </style>
+    <script>
+      let db = new Object
+      function log() {
+        //objectName['propName']
+        //onclick collect inputs
+        var inputs, index;
+        inputs = document.getElementsByTagName('input');
+        //set returnObj
+        var returnObj = {}
+        for (index = 0; index < inputs.length; ++index) {
+          // deal with inputs[index] element.
+          returnObj[inputs[index].placeholder]=inputs[index].value
+        }
+        //add to db
+        db[`${returnObj.name}`] = returnObj
+        //write db to screen
+        var para = document.createElement("p")
+        para.setAttribute("class", "centeralign");
+        var node = document.createTextNode(JSON.stringify(db));
+        para.appendChild(node);
+        var element = document.getElementById("form1");
+        element.appendChild(para);
+        //clear
+        for (index = 0; index < inputs.length; ++index) {
+          // deal with inputs[index] element.
+          inputs[index].value=''
+        }
+      
+      }
+      
+      console.log(db)
+    </script>
+  </head>
+  <body>
+    <form id='form1'>
+      <p><input placeholder='name' class="w3-input w3-hover-green" type="text"></p>
+      <p><input placeholder='club' class="w3-input w3-hover-green" type="text"></p>
+      <p><input placeholder='things' class="w3-input w3-hover-green" type="text"></p>
+      <button onclick="log()">+</button>
+    </form>
+  </body>
+  
+  <div align='left' id='div1'></div>
+
+</html>
